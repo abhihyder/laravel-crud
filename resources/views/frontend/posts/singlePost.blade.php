@@ -10,7 +10,13 @@
     <h3>Post Details</h3>
         <hr>
         
-        <h5>{{$post->title}}</h5>
+        <h4>{{$post->title}}</h4>
+        
+        @if($post->status == 0) 
+        <h6>Draft</h6>
+        @else
+        <h6>Published</h6>
+        @endif
         <p>
             <a href="">{{$post->created_at->format('F d, Y')}}</a>
             by <a href="">{{$post->user->name}}</a>
