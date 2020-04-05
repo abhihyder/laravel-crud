@@ -28,9 +28,6 @@
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/')}}">Home </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="#">About</a>
-                        </li>
                        
                         <li class="nav-item">
                             <a class="nav-link " href="{{url('post')}}">Blog</a>
@@ -50,9 +47,3 @@
         </div>
 
  <!-- Nav bar end-->
-
-
- <!-- Content start-->
-    @yield('content')  
-    </body>
-</html>

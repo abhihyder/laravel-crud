@@ -12,5 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('frontend.home.home');
 });
+
+Route::resource('post', 'Frontend\PostController');
