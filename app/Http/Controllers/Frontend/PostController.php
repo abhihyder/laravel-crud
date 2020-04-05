@@ -62,7 +62,7 @@ class PostController extends Controller
             'content'=> $request->content,
             'status'=> $request->status,
         ];
-        
+
         Post::create($data);
         return redirect()->back();
     }
@@ -75,7 +75,10 @@ class PostController extends Controller
      */
     public function show($id)
     {
-        //
+         $post= Post::with('category', 'user')
+        ->select('id','user_id', 'category_id', 'title', 'content', 'status', 'created_at')
+        ->find($id);
+        return view('frontend.posts.singlePost', compact('post'));
     }
 
     /**
@@ -86,7 +89,10 @@ class PostController extends Controller
      */
     public function edit($id)
     {
-        //
+        $post= Post::with('category')
+        ->select('id', 'category_id', 'title', 'content', 'status')
+        ->find($id);
+        return view('frontend.posts.editPost', compact('post'));
     }
 
     /**
@@ -98,7 +104,32 @@ class PostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //validation
+
+            $validator = Validator::make($request->all(), [
+            'title'   => 'required| max:128',
+            'content'   => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect('post/create')
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $data=[
+            'title'=> $request->title,
+            'content'=> $request->content,
+            'status'=> $request->status,
+        ];
+
+        $post=Post::find($id); //fetch data
+        $post->update($data); // Update data
+
+
+       //return response()->json($data);
+       
+       return redirect('post/'.$id);
     }
 
     /**
@@ -109,6 +140,8 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post= Post::find($id); //fetch data
+        $post->delete(); // Data delete
+        return redirect('post');
     }
 }
