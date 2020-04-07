@@ -16,3 +16,4 @@ Route::get('/', function () {
 });
 
 Route::resource('post', 'Frontend\PostController');
+Route::get('user', 'Frontend\UserController@index');

@@ -34,7 +34,7 @@
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link " href="">Category</a>
+                            <a class="nav-link " href="{{url('user')}}">User</a>
                         </li>
 
  
