@@ -17,3 +17,6 @@ Route::get('/', function () {
 
 Route::resource('post', 'Frontend\PostController');
 Route::get('user', 'Frontend\UserController@index');
+
+//For Yajrabox filter
+Route::get('users', 'Frontend\UserController@getUsers')->name('get.users');

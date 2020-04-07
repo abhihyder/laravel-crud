@@ -16,19 +16,25 @@
 
             </tr>
         </thead>
-        <tbody>
-
-        @foreach($users as $user)
-            <tr>
-            <td>{{$user->id}}</td>
-            <td>{{$user->name}}</td>
-            <td>{{$user->email}}</td>
-            <td>{{$user->phone}}</td>
-            <td>{{$user->created_at->format('F d, Y')}}</td>
-            </tr>
-        @endforeach
-
-        </tbody>
+      
     </table>
 </div> 
+
+
+    <script>
+        $(document).ready( function () {
+            $('#myTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: '{!! route('get.users') !!}',
+                columns: [
+                    { data: 'id', name: 'id' },
+                    { data: 'name', name: 'name' },
+                    { data: 'email', name: 'email' },
+                    { data: 'phone', name: 'phone' },
+                    { data: 'created_at', name: 'created_at' }
+                ]
+            });
+        } );
+    </script>
 @endsection

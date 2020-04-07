@@ -8,4 +8,6 @@
 - Run 'cp .env.example .env'
 - Run 'php artisan migrate --seed'
 
+## Packages used
 
+- Yajrabox
