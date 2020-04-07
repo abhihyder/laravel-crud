@@ -5,6 +5,7 @@
 ## Installation instruction
 
 - Clone the repository
+- Run 'composer install'
 - Run 'cp .env.example .env'
 - Run 'php artisan migrate --seed'
 

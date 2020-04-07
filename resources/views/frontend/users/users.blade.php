@@ -13,6 +13,7 @@
             <th scope="col">Email</th>
             <th scope="col">Phone</th>
             <th scope="col">Created At</th>
+            <th scope="col">Action</th>
 
             </tr>
         </thead>
@@ -32,7 +33,8 @@
                     { data: 'name', name: 'name' },
                     { data: 'email', name: 'email' },
                     { data: 'phone', name: 'phone' },
-                    { data: 'created_at', name: 'created_at' }
+                    { data: 'created_at', name: 'created_at' },
+                    { data: 'action', name: 'action' }
                 ]
             });
         } );

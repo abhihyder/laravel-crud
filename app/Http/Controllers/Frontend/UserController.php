@@ -26,6 +26,13 @@ class UserController extends Controller
      */
     public function getUsers()
     {
-        return Datatables::of(User::query())->make(true);
+        return Datatables::of(User::query())
+        ->setRowId('id')
+        ->setRowClass('{{ $id % 2 == 0 ? "text-dark" : "text-muted" }}')
+        ->editColumn('created_at', function(User $user) {
+            return  $user->created_at->diffForHumans();
+        })
+        ->addColumn('action', 'frontend.columns.edit')
+        ->make(true);
     }
 }
