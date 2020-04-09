@@ -12,6 +12,9 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <!-- Fontawesome -->
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+
         <!-- Datatable -->
         <link href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" rel="stylesheet">
 
@@ -42,6 +45,10 @@
 
                         <li class="nav-item">
                             <a class="nav-link " href="{{url('user')}}">User</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link " href="{{url('builder')}}">Html Builder</a>
                         </li>
 
  

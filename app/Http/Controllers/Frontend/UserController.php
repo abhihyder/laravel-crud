@@ -32,7 +32,13 @@ class UserController extends Controller
         ->editColumn('created_at', function(User $user) {
             return  $user->created_at->diffForHumans();
         })
-        ->addColumn('action', 'frontend.columns.edit')
+        // ->addColumn('action', 'frontend.columns.edit')
+        //->addColumn('action', '<a href="#">Edit</a>')
+        ->addColumn('action', function( $user) {
+            return ' <a href="' . url('user/edit/' . $user['id'] ). '" class="btn btn-sm btn-info open" ><i class="fa fa-folder-open-o"></i> Edit</a>
+            <a href="' . url('user/view/' . $user['id'] ). '" class="btn btn-sm btn-success open" ><i class="fa fa-folder-open-o"></i> View</a>
+            ';
+        })
         ->make(true);
     }
 }
